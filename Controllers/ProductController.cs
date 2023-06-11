@@ -35,6 +35,7 @@ namespace DiplomeProject.Controllers
             return Ok(_productRepository.GetById(id));
         }
 
+
         [HttpGet("GetProductsByCategory/{categoryId}")]
         public async Task<IActionResult> GetProductsByCategory(string categoryId)
         {
