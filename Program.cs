@@ -1,5 +1,8 @@
 using DiplomeProject.DB;
 using DiplomeProject.DB.IdentityModels;
+using DiplomeProject.DB.Models;
+using DiplomeProject.Repositories.Implementations;
+using DiplomeProject.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +18,8 @@ internal class Program
         builder.Services.AddDbContext<EFDbContext>(options =>
                      options.UseSqlServer(connectionString));
 
+        builder.Services.AddTransient<IRepository<Product>, ProductRepository>();
+
         builder.Services.AddIdentity<DbUser, IdentityRole>(options =>
         {
             options.Stores.MaxLengthForKeys = 256;
@@ -23,8 +28,10 @@ internal class Program
                .AddEntityFrameworkStores<EFDbContext>()
                .AddDefaultTokenProviders();
 
-        builder.Services.AddAuthentication();
-        builder.Services.AddControllersWithViews();
+
+        builder.Services.AddControllers();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
 
@@ -32,17 +39,27 @@ internal class Program
         if (!app.Environment.IsDevelopment())
         {
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-            app.UseHsts();
+            app.UseHsts();        
         }
+
+        app.UseSwagger();
+        app.UseSwaggerUI();
 
         app.UseAuthentication();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
+        app.UseDeveloperExceptionPage();
 
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller}/{action=Index}/{id?}");
+
+        app.UseSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+            options.RoutePrefix = string.Empty;
+        });
 
         app.MapFallbackToFile("index.html"); ;
 

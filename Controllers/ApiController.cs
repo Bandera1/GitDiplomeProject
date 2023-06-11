@@ -3,8 +3,8 @@
 namespace DiplomeProject.Controllers
 {
     [ApiController]
-    [Produces("application/json")]
     [Route("api/[controller]")]
+    [Produces("application/json")]
     public class ApiController : ControllerBase
     {
     }
