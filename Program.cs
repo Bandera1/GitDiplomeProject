@@ -14,6 +14,7 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+
         // Add services to the container.
         builder.Services.AddDbContext<EFDbContext>(options =>
                      options.UseSqlServer(connectionString));
