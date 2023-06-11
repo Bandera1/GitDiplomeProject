@@ -3,6 +3,7 @@ using DiplomeProject.DB.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DiplomeProject.DB
 {
@@ -26,7 +27,7 @@ namespace DiplomeProject.DB
 
             // Roles - 1
             builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Admin" });
-
+          
             #region Category
             // Category - 4
             builder.Entity<Category>().HasData(
@@ -121,9 +122,10 @@ namespace DiplomeProject.DB
             // Products - 19
             #region Products
             builder.Entity<Product>().HasData(
-            #region Ariel
+                #region Ariel
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Капсули для прання Ariel Professional color 80 шт",
                     Price = 1273,
                     ProducerId = "ariel01",
@@ -146,6 +148,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Капсули для прання Ariel Professional original 80 шт",
                     Price = 1282,
                     ProducerId = "ariel01",
@@ -162,6 +165,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Плямовивідник Ariel Diamond Bright для білого та кольорового 750 мл",
                     Price = 157.25F,
                     ProducerId = "ariel01",
@@ -178,6 +182,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Пральний порошок Ariel Аква-Пудра Дотик свіжості Lenor автомат 5,4 кг",
                     Price = 585,
                     ProducerId = "ariel01",
@@ -191,6 +196,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Капсули для прання Ariel All-in-1 універсальні 42 шт",
                     Price = 335,
                     ProducerId = "ariel01",
@@ -209,6 +215,7 @@ namespace DiplomeProject.DB
                 #region W5
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Гель для чищення труб W5 1 л",
                     Price = 76,
                     ProducerId = "W502",
@@ -223,6 +230,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Гель для чищення унітазу W5 Eco Lemon екологічний 1 л",
                     Price = 59,
                     ProducerId = "W502",
@@ -241,6 +249,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Засіб для миття ванни W5 Kraft & Glanz Ocean спрей 1 л",
                     Price = 80,
                     ProducerId = "W502",
@@ -256,6 +265,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Засіб для прибирання W5 Eco універсальний екологічний 1,25 л",
                     Price = 80,
                     ProducerId = "W502",
@@ -274,6 +284,7 @@ namespace DiplomeProject.DB
                 #region Bonus
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Губка BONUS Magical easy grip sponge scourer для миття посуду 2 шт",
                     Price = 27.95F,
                     ProducerId = "Bonus03",
@@ -289,6 +300,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Моп BONUS Cotton Mop Насадка для швабри 30*9*6 см (бавовна) (L)",
                     Price = 47.04F,
                     ProducerId = "Bonus03",
@@ -307,6 +319,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Моп BONUS MicroMop Насадка для швабри мікрофібра 30*11*8 см (колір зелений+фіолет)",
                     Price = 142,
                     ProducerId = "Bonus03",
@@ -323,6 +336,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Набір для кухні BONUS Kitchen Smart Pack",
                     Price = 208,
                     DiscountPercent = 11,
@@ -338,6 +352,7 @@ namespace DiplomeProject.DB
                 #region Domestos
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Гель для чищення унітазу Domestos professional Original Pro Formula 750 мл",
                     Price = 144F,
                     ProducerId = "Domestos04",
@@ -354,6 +369,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Гель для чищення унітазу Domestos Zero WC Gel Blue 750 мл",
                     Price = 104,
                     DiscountPercent = 8,
@@ -371,6 +387,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Гель для чищення унітазу Domestos professional Citrus Fresh Pro Formula 5 л",
                     Price = 447,
                     ProducerId = "Domestos04",
@@ -386,6 +403,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Гель для чищення унітазу Domestos professional Pine Fresh Pro Formula 5 л",
                     Price = 403,
                     ProducerId = "Domestos04",
@@ -404,6 +422,7 @@ namespace DiplomeProject.DB
                 #region Denkmit
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Засіб від накипу Denkmit у таблетках 60 шт",
                     Price = 316F,
                     ProducerId = "Denkmit05",
@@ -420,6 +439,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Засіб для видалення жиру і нагару Denkmit Супердія 750 мл",
                     Price = 720,
                     DiscountPercent = 12,
@@ -434,6 +454,7 @@ namespace DiplomeProject.DB
                 },
                 new Product
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Засіб для миття ламінату Denkmit 1л",
                     Price = 66,
                     ProducerId = "Denkmit05",
@@ -442,6 +463,9 @@ namespace DiplomeProject.DB
                     WeightInKilogram = 1,
                     Article = "DM294647",
                     PhotoPath = "/product19",
+                    Description = "Засіб для очищення ламінату та пробкових підлог від Denkmit має формулу швидкого висихання, " +
+                    "а також спеціальний захист стиків від вологи та здуття. Підходить для ламінату, пробки, вінілу та лінолеуму." +
+                    "\r\n\r\n*Упаковка містить не менше 70% переробленого вмісту."
                 }
                 #endregion
                );
