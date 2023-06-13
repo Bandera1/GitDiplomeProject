@@ -10,6 +10,24 @@ namespace StudentAccountingProject.Helpers
 {
     public static class ImageService
     {
+        public static string ImageToBase64(string path)
+        {
+            var currentDirectory = System.IO.Directory.GetCurrentDirectory() + "\\Uploaded\\ProductsImages\\" + path + ".jpg";
+
+            using (Image image = Image.FromFile(currentDirectory)) 
+            {
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    byte[] imageBytes = m.ToArray();
+
+                    // Convert byte[] to Base64 String
+                    string base64String = Convert.ToBase64String(imageBytes);
+                    return base64String;
+                }
+            }
+        }
+
         public static Bitmap FromBase64StringToImage(this string base64String)
         {
             byte[] byteBuffer = Convert.FromBase64String(base64String);

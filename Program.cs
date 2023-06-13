@@ -5,7 +5,9 @@ using DiplomeProject.Repositories.Implementations;
 using DiplomeProject.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.Extensions.FileProviders;
+using StudentAccountingProject.Helpers;
+using StudentAccountingProject.Services;
 
 internal class Program
 {
@@ -20,6 +22,8 @@ internal class Program
                      options.UseSqlServer(connectionString));
 
         builder.Services.AddTransient<IRepository<Product>, ProductRepository>();
+        builder.Services.AddTransient<IRepository<Producer>, ProducerRepository>();
+        builder.Services.AddTransient<IRepository<Category>, ÑategoryRepository>();
 
         builder.Services.AddIdentity<DbUser, IdentityRole>(options =>
         {
@@ -34,6 +38,14 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+        {
+            builder.WithOrigins("https://localhost:44430").
+            SetIsOriginAllowedToAllowWildcardSubdomains()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+        }));
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -45,7 +57,7 @@ internal class Program
 
         app.UseSwagger();
         app.UseSwaggerUI();
-
+        app.UseCors("corsapp");
         app.UseAuthentication();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
@@ -55,6 +67,30 @@ internal class Program
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller}/{action=Index}/{id?}");
+
+
+        #region InitStaticFiles ProductImages
+        string pathUsers = InitStaticFiles
+           .CreateFolderServer(app.Environment, app.Configuration,
+               new string[] { "ImagesPath", "ImagesPathProducts" });
+        app.UseStaticFiles(new StaticFileOptions()
+        {
+            FileProvider = new PhysicalFileProvider(pathUsers),
+            RequestPath = new PathString('/' + app.Configuration.GetValue<string>("ProductssUrlImages"))
+        });
+        #endregion
+
+        #region InitStaticFiles Images
+        string pathRoot = InitStaticFiles
+            .CreateFolderServer(app.Environment, app.Configuration,
+                new string[] { "ImagesPath" });
+
+        app.UseStaticFiles(new StaticFileOptions()
+        {
+            FileProvider = new PhysicalFileProvider(pathRoot),
+            RequestPath = new PathString("/" + app.Configuration.GetValue<string>("UrlImages"))
+        });
+        #endregion;
 
         app.UseSwaggerUI(options =>
         {

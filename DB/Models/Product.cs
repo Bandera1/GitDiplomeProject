@@ -5,6 +5,11 @@ namespace DiplomeProject.DB.Models
 {
     public class Product
     {
+        public Product()
+        {
+            this.PhotoBase64 = "";
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
@@ -18,6 +23,7 @@ namespace DiplomeProject.DB.Models
         public float WeightInKilogram { get; set; }
         public string PhotoPath { get; set; }
         public string Description { get; set; }
+        public string PhotoBase64 { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual Producer Producer { get; set; }

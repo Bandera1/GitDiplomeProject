@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiplomeProject.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20230611155531_init")]
+    [Migration("20230612191912_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -227,6 +227,10 @@ namespace DiplomeProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhotoBase64")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhotoPath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -258,13 +262,14 @@ namespace DiplomeProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "82f29bb2-de09-4102-8b5e-207ab65ea22b",
+                            Id = "fd7e3b11-eb4b-4303-8257-f2c86d900c55",
                             Article = "HP344410",
                             CategoryId = "category2",
                             Description = "Унікальні капсули для прання кольорових речей Ariel Professional color від торгової марки Ariel подарують вашим речам неперевершену чистоту! Завдяки вмісту активних компонентів засіб чудово справляється навіть зі складними плямами на одязі, зберігаючи при цьому початкову насиченість кольору.\r\n\r\nКапсули для прання Ariel Professional color мають унікальну багатокамерну структуру, що означає, що інгредієнти відокремлені один від одного та не з'єднуються один з одним до початку прання, завдяки чому забезпечують надзвичайно концентровану пральну здатність. Інноваційне покриття капсул для прання Ariel повністю розчиняється при контакті з водою, вивільняючи спеціальні формули, що дозволяють видаляти різні види плям.\r\n\r\nКапсули Ariel – найкращий засіб у рідкій формі, що містить необхідну кількість окремих інгредієнтів. Цей засіб є у 3 рази більш концентрованим у порівнянні з іншими пральними засобами. Його перевагою є відсутність у складі фосфатів, що робить використання капсул абсолютно безпечним. Після прання ваші речі пахнуть свіжістю.",
                             DiscountPercent = 17f,
                             Name = "Капсули для прання Ariel Professional color 80 шт",
-                            PhotoPath = "/product1",
+                            PhotoBase64 = "",
+                            PhotoPath = "product1",
                             Price = 1273f,
                             ProducerId = "ariel01",
                             StatusId = "avaliable",
@@ -272,13 +277,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "1d791781-812d-4f57-a42a-af35436ac137",
+                            Id = "395ea096-0886-420d-84a7-4b7bcbca64dc",
                             Article = "HP344397",
                             CategoryId = "category2",
                             Description = "Унікальні капсули для прання кольорових речей Ariel Professional original від торгової марки Ariel подарують вашим речам неперевершену чистоту! Завдяки вмісту активних компонентів засіб чудово справляється навіть зі складними плямами на одязі, зберігаючи при цьому початкову насиченість кольору.\r\n\r\nКапсули для прання Ariel Professional original мають унікальну багатокамерну структуру, що означає, що інгредієнти відокремлені один від одного та не з'єднуються один з одним до початку прання, завдяки чому забезпечують надзвичайно концентровану пральну здатність. Інноваційне покриття капсул для прання Ariel повністю розчиняється при контакті з водою, вивільняючи спеціальні формули, що дозволяють видаляти різні види плям.\r\n\r\nКапсули Ariel – найкращий засіб у рідкій формі, що містить необхідну кількість окремих інгредієнтів. Цей засіб є у 3 рази більш концентрованим у порівнянні з іншими пральними засобами. Його перевагою є відсутність у складі фосфатів, що робить використання капсул абсолютно безпечним. Після прання ваші речі пахнуть свіжістю.",
                             DiscountPercent = 0f,
                             Name = "Капсули для прання Ariel Professional original 80 шт",
-                            PhotoPath = "/product2",
+                            PhotoBase64 = "",
+                            PhotoPath = "product2",
                             Price = 1282f,
                             ProducerId = "ariel01",
                             StatusId = "runOut",
@@ -286,13 +292,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "fc7be537-04d5-45e6-afa1-e4e99662a079",
+                            Id = "a4499cd3-7ce8-4cf6-8f04-1c80d2b40095",
                             Article = "HP821748",
                             CategoryId = "category1",
                             Description = "Універсальний плямовивідник-спрей Ariel Diamond Bright розроблений для видалення плям на кольорових, світлих і білих речах.\r\n\r\nЗасіб з технологією Oxifoam - активної кисневої піни - досягає помітного результату вже після першої обробки і прання. Рідина на основі унікальних інгредієнтів, усуває навіть найстійкіші жирові та інші плями від їжі і напоїв. Ariel Diamond Bright чудово впорається як зі свіжими, так і застарілими плямами.\r\n\r\nПлямовивідник Ariel не шкодить тканині, доглядаючи за волокнами під час прання. Завдяки інноваційній формулі всі кольори залишаються незмінними і зберігають свої початкові відтінки.",
                             DiscountPercent = 0f,
                             Name = "Плямовивідник Ariel Diamond Bright для білого та кольорового 750 мл",
-                            PhotoPath = "/product3",
+                            PhotoBase64 = "",
+                            PhotoPath = "product3",
                             Price = 157.25f,
                             ProducerId = "ariel01",
                             StatusId = "avaliable",
@@ -300,13 +307,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "a561e284-f6dd-4c2a-aa06-df2bf4d02102",
+                            Id = "c014fe98-2cad-407c-9b6b-22e78ecca451",
                             Article = "SV536988",
                             CategoryId = "category1",
                             Description = "Пральний порошок Ariel Аква-Пудра Дотик свіжості Lenor автомат 5,4 кг",
                             DiscountPercent = 15f,
                             Name = "Пральний порошок Ariel Аква-Пудра Дотик свіжості Lenor автомат 5,4 кг",
-                            PhotoPath = "/product4",
+                            PhotoBase64 = "",
+                            PhotoPath = "product4",
                             Price = 585f,
                             ProducerId = "ariel01",
                             StatusId = "avaliable",
@@ -314,13 +322,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "4249c221-181c-4614-bd93-806a05278082",
+                            Id = "9672b136-7702-445b-8c8f-21f19e537de5",
                             Article = "HP921552",
                             CategoryId = "category1",
                             Description = "Універсальні капсули для прання Ariel All-in-1 забезпечують високу ефективність прання та протидіють широкому спектру плям. Капсули складаються з окремих камери, які вивільняють інгредієнти лише тоді, коли вони потрібні під час процесу прання. Інноваційна оболонка капсули Ariel All-in-1 повністю розчиняється при контакті з водою і є біологічно розкладною. \r\n\r\nНайкращий рідкий миючий засіб від Ariel з оптимальним дозуванням : 1 капсула на 1 цикл прання. Помістіть капсулу в барабан, а потім одяг зверху, щоб ефективно використовувати продукт.",
                             DiscountPercent = 0f,
                             Name = "Капсули для прання Ariel All-in-1 універсальні 42 шт",
-                            PhotoPath = "/product5",
+                            PhotoBase64 = "",
+                            PhotoPath = "product5",
                             Price = 335f,
                             ProducerId = "ariel01",
                             StatusId = "notAvaliable",
@@ -328,13 +337,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "ec5e7ea6-be19-4c9b-8b49-5c82ba510734",
+                            Id = "f4305763-af60-47b4-97a6-1db79ac47eb0",
                             Article = "DM178949",
                             CategoryId = "category3",
                             Description = "Гель для чищення труб W5 1 л\r\n\r\nГель для очищення каналізаційних труб W5 ефективно усуває навіть стійкі засмічення, викликані волоссям, залишками харчових відходів, жиром або милом, і підходить для всіх поширених типів труб. Потужна високоефективна формула також усуває неприємні запахи для гігієнічної чистоти.",
                             DiscountPercent = 0f,
                             Name = "Гель для чищення труб W5 1 л",
-                            PhotoPath = "/product6",
+                            PhotoBase64 = "",
+                            PhotoPath = "product6",
                             Price = 76f,
                             ProducerId = "W502",
                             StatusId = "avaliable",
@@ -342,13 +352,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "db7e9e15-3fcb-451b-ae37-2f53b78104f2",
+                            Id = "ddf44c1b-9105-497c-a191-3c8382046b2a",
                             Article = "DM018889",
                             CategoryId = "category3",
                             Description = "Гель антибактеріальний для очищення туалету \"ЕКО\" W5 Toilet Cleaner справляється із різними забрудненнями, наділений легкою антибактеріальною дією. Чистяча рідина не завдасть шкоди шкірі людини. Ваш унітаз просто сяятиме чистотою, як новий. На ньому не залишиться жодних розводів, а вашій туалетній кімнаті забезпечена гігієнічна чистота та свіжість. Ефективний і високоякісний засіб для чищення унітазів, ретельне миття забезпечує спеціальними компонентами, що містяться в засобі. Форма пляшки досить зручна для того, щоб наносити засіб навіть у «затишні куточки», такі як обідок унітазу. Засіб має приємний лимонний запах.",
                             DiscountPercent = 20f,
                             Name = "Гель для чищення унітазу W5 Eco Lemon екологічний 1 л",
-                            PhotoPath = "/product7",
+                            PhotoBase64 = "",
+                            PhotoPath = "product7",
                             Price = 59f,
                             ProducerId = "W502",
                             StatusId = "runOut",
@@ -356,13 +367,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "e02a1813-4cf3-4c96-8d85-8c2403a20516",
+                            Id = "21ef6e9b-3dd5-4b54-8d29-0e07f25cf0a7",
                             Article = "DM168423",
                             CategoryId = "category3",
                             Description = "W5 спрей для чищення ванної з ароматом океану. Засіб призначений для миття плитки, стиків та сантехніки. Корисний скрізь, де є потреба гігієнічної чистоти. Без особливих труднощів позбавить від вапняного нальоту та грибка у ванній кімнаті. Завдяки W5 очищені поверхні надовго збережуть свій первісний вигляд і стануть чистими та блискучими. Виріб має зручний розпилювач, що створює активну піну. У складі лише натуральні компоненти рослинного та мінерального походження.",
                             DiscountPercent = 0f,
                             Name = "Засіб для миття ванни W5 Kraft & Glanz Ocean спрей 1 л",
-                            PhotoPath = "/product8",
+                            PhotoBase64 = "",
+                            PhotoPath = "product8",
                             Price = 80f,
                             ProducerId = "W502",
                             StatusId = "avaliable",
@@ -370,13 +382,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "15e741f5-6206-4063-828a-fb139c98c34c",
+                            Id = "106e227e-d3d5-435c-a148-52227cab7c6d",
                             Article = "GT018896",
                             CategoryId = "category3",
                             Description = "Універсальна рідина для прибирання W5 Eco ідеально підходить для щоденного догляду за різними типами поверхонь, що миються, включаючи підлогу, стіни і плитку. Засіб містить поверхнево-активні речовини рослинного походження. Ефективне прибирання із турботою про навколишнє середовище!\r\n\r\nЕкологічний миючий засіб W5 Eco призначений для всіх видів покриттів, а саме кахель, керамограніт, ламінат, пластик, вініл, лінолеум та ін.\r\n\r\nW5 Eco забезпечує ідеальну чистоту всіх поверхонь без тертя та надмірних зусиль та залишає легкий аромат свіжості.",
                             DiscountPercent = 0f,
                             Name = "Засіб для прибирання W5 Eco універсальний екологічний 1,25 л",
-                            PhotoPath = "/product8",
+                            PhotoBase64 = "",
+                            PhotoPath = "product8",
                             Price = 80f,
                             ProducerId = "W502",
                             StatusId = "avaliable",
@@ -384,13 +397,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "ef85206f-a6fd-4420-94b0-35fe2578e77a",
+                            Id = "2b325bdd-184f-443b-aaef-582a433d295b",
                             Article = "EU052476",
                             CategoryId = "category4",
                             Description = "БОНУС⁺ Чарівна губка для миття посуду – це ключ до чистоти кожної кухні та ванної кімнати. Зробіть прибирання незабутнім!\r\n\r\nКраса та додаткова ефективність — ці дві речі характеризують губку для миття посуду BONUS⁺ без подряпин, яка є незамінним аксесуаром для будь-якого стильного будинку.\r\n\r\nАбразивний шар без подряпин з веселим малюнком м'яко очищає забруднення. Як? Секрет криється у якісній губчастій піні та абразивному шарі без подряпин. Незалежно від того, чи це плями фарби на плитці чи на вікнах після фарбування, для губки BONUS + Magical немає неможливої місії.",
                             DiscountPercent = 0f,
                             Name = "Губка BONUS Magical easy grip sponge scourer для миття посуду 2 шт",
-                            PhotoPath = "/product9",
+                            PhotoBase64 = "",
+                            PhotoPath = "product9",
                             Price = 27.95f,
                             ProducerId = "Bonus03",
                             StatusId = "avaliable",
@@ -398,13 +412,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "eecbff61-813f-442d-862e-7caaa2094c98",
+                            Id = "e157ed4f-8824-4f99-9e62-39f8b62dc8cf",
                             Article = "EU301491",
                             CategoryId = "category3",
                             Description = "BONUS CottonMOP забезпечує блискучу чистоту підлоги!\r\n\r\nУ кожному помешканні є критичні точки для чистоти, в більшості випадків це не що інше, як підлога. Тому дуже важливо використовувати зручний та надійний інструмент, щоб мити підлогу. І це саме про BONUS CottonMOP. Найкраще використовувати його універсально для всіх видів підлогових поверхонь, на кухні, у ванній, вітальні або навіть використовувати на відкритому повітрі, на терасі або перед вхідними дверима.",
                             DiscountPercent = 11f,
                             Name = "Моп BONUS Cotton Mop Насадка для швабри 30*9*6 см (бавовна) (L)",
-                            PhotoPath = "/product10",
+                            PhotoBase64 = "",
+                            PhotoPath = "product10",
                             Price = 47.04f,
                             ProducerId = "Bonus03",
                             StatusId = "avaliable",
@@ -412,13 +427,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "db634885-e457-42bb-b98c-6a6a07006b60",
+                            Id = "67913cf8-a49c-4097-9156-d63275e0ea40",
                             Article = "EU052629",
                             CategoryId = "category3",
                             Description = "BONUS + MicroMOP – це найефективніша абсорбуюча насадка для гладких поверхонь підлоги.\r\n\r\nОднією з найбільших проблем під час миття підлоги є складність по-справжньому зібрати бруд. Недостатньо просто протерти підлогу, тільки справді якісна насадка для швабри може дійсно зібрати, а не розтерти бруд по поверхні. MicroMOP може зробити це без зусиль, оскільки вона чудово поглинає вологу і стає достатньо масивною у вологому стані, тому не потрібно тиснути на підлогу під час прибирання. Одним рухом можна досягти дивовижної чистоти, а поверхня залишається майже сухою.",
                             DiscountPercent = 0f,
                             Name = "Моп BONUS MicroMop Насадка для швабри мікрофібра 30*11*8 см (колір зелений+фіолет)",
-                            PhotoPath = "/product11",
+                            PhotoBase64 = "",
+                            PhotoPath = "product11",
                             Price = 142f,
                             ProducerId = "Bonus03",
                             StatusId = "notAvaliable",
@@ -426,13 +442,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "37c2f224-5515-47e8-a2c9-e7744705bbf9",
+                            Id = "04a7d017-289b-43b7-963f-c236e797733a",
                             Article = "EU303471",
                             CategoryId = "category4",
                             Description = "Набір для кухні BONUS Kitchen Smart Pack",
                             DiscountPercent = 11f,
                             Name = "Набір для кухні BONUS Kitchen Smart Pack",
-                            PhotoPath = "/product12",
+                            PhotoBase64 = "",
+                            PhotoPath = "product12",
                             Price = 208f,
                             ProducerId = "Bonus03",
                             StatusId = "avaliable",
@@ -440,13 +457,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "8448f1d5-962b-41ea-8950-0dece21551af",
+                            Id = "93b0e34b-617c-41b6-aa57-016095390d3c",
                             Article = "MB116546",
                             CategoryId = "category3",
                             Description = "Ефективний засіб для унітазів і пісуарів Domestos professional Original Pro Formula підходить для використання на фарфорових і глянсових поверхнях. Він входить у лінійку професійних сильнодіючих продуктів Pro Formula, розроблених для прибирання великих об'єктах: готелі, ресторани, навчальні заклади, торгові площі. Такий засіб з легкістю подолає побутові забруднення. Засіб видаляє сильні забруднення і вапняний наліт, відкладення, іржу, сечовий камінь і мильні розводи. Даний засіб є ефективним проти нальоту та інших забруднень, властивих сантехніці.",
                             DiscountPercent = 0f,
                             Name = "Гель для чищення унітазу Domestos professional Original Pro Formula 750 мл",
-                            PhotoPath = "/product13",
+                            PhotoBase64 = "",
+                            PhotoPath = "product13",
                             Price = 144f,
                             ProducerId = "Domestos04",
                             StatusId = "notAvaliable",
@@ -454,13 +472,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "12931cb8-d606-47e1-8a05-7898c5663e97",
+                            Id = "7a7145ee-8ba5-4d15-b999-167f3d89d4d2",
                             Article = "MY635729",
                             CategoryId = "category3",
                             Description = "Гель для туалету Domestos WC Gel — це надзвичайно густий засіб для чищення унітазів для економічного використання та ідеальної чистоти та гігієни. \r\n\r\nУнікальна дозувальна насадка Domestos дозволяє рівномірно розподіляє гель навіть у важкодоступних місцях. Він видаляє стійкі забруднення та відкладення вапняного нальоту, іржі та утворює захисний щит від утворення нового вапняного нальоту. \r\n\r\nЗасіб для чищення Domestos WC Gel наповнює ароматом океану і гарантує інтенсивну свіжість. Забезпечує гігієнічну та довготривалу чистоту та надає унітазу блиску та білизни.",
                             DiscountPercent = 8f,
                             Name = "Гель для чищення унітазу Domestos Zero WC Gel Blue 750 мл",
-                            PhotoPath = "/product14",
+                            PhotoBase64 = "",
+                            PhotoPath = "product14",
                             Price = 104f,
                             ProducerId = "Domestos04",
                             StatusId = "avaliable",
@@ -468,13 +487,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "c0ce1483-f2ac-496e-9d87-f8481eb25520",
+                            Id = "6ab5c3c4-321e-4c7d-a48d-a554528429f4",
                             Article = "MB813759",
                             CategoryId = "category3",
                             Description = "Засіб для чищення Domestos Citros Fresh Pro Formula \"Лимонна свіжість\" є універсальним. Він запобігає повторній появі грибка, надає дезінфікуючу дію, видаляє всі відомі мікроби. Достатньо невелику кількість засобу нанести на ганчірку або губку, щоб повністю продезінфікувати та очистити ванну кімнату та туалет. Чудово справляється із вапняним нальотом, видаляє плями будь-якого походження. Залишає після себе свіжий аромат лимона.",
                             DiscountPercent = 0f,
                             Name = "Гель для чищення унітазу Domestos professional Citrus Fresh Pro Formula 5 л",
-                            PhotoPath = "/product15",
+                            PhotoBase64 = "",
+                            PhotoPath = "product15",
                             Price = 447f,
                             ProducerId = "Domestos04",
                             StatusId = "notAvaliable",
@@ -482,13 +502,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "bf8d5715-a11a-4e57-8e80-e2e309e15051",
+                            Id = "26ffb48e-915f-4cee-937e-dd5db5a2e058",
                             Article = "MB813742",
                             CategoryId = "category3",
                             Description = "Універсальний миючий засіб Domestos professional Pine Fresh Pro Formula з ароматом Хвої з дезінфікуючим ефектом для миття підлоги, туалету, раковин, ванн, стоків, підлоги та приладів у медичних закладах, санітарних приміщеннях, будинках у ресторанах та готелях тепер простіше та ефективніше. Завдяки густій консистенції засіб довше прилипає до поверхні, що очищається і більш ефективно видаляє забруднення. Відмінно підходить для місць, де важлива чистота та стерильність, і де щодня люди або готуються їжа.",
                             DiscountPercent = 0f,
                             Name = "Гель для чищення унітазу Domestos professional Pine Fresh Pro Formula 5 л",
-                            PhotoPath = "/product16",
+                            PhotoBase64 = "",
+                            PhotoPath = "product16",
                             Price = 403f,
                             ProducerId = "Domestos04",
                             StatusId = "notAvaliable",
@@ -496,13 +517,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "50ba34c9-2888-47bb-ac72-948a3e0c7f5d",
+                            Id = "c9ab9e23-40bd-4208-8e0f-fa02a91f2602",
                             Article = "DM485915",
                             CategoryId = "category4",
                             Description = "Таблетки Denkmit проти вапняного нальоту мают силу подвійної дії: вони забезпечують надійний захист від вапняного нальоту як для машини, так і для білизни, а завдяки формулі захисту від бруду підтримують машину в чистоті. Регулярне використання засобу продовжить термін служби вашої пральної машини. Крім того, ви заощаджуєте миючий засіб, оскільки при використанні таблеток проти вапняного нальоту вам потрібно дозувати миючий засіб лише для діапазону жорсткості м’якої води – незалежно від того, наскільки жорстка ваша вода. ",
                             DiscountPercent = 0f,
                             Name = "Засіб від накипу Denkmit у таблетках 60 шт",
-                            PhotoPath = "/product17",
+                            PhotoBase64 = "",
+                            PhotoPath = "product17",
                             Price = 316f,
                             ProducerId = "Denkmit05",
                             StatusId = "runOut",
@@ -510,13 +532,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "f2204903-9189-49cf-af0e-22618166a19f",
+                            Id = "0b513321-b334-40ed-9b4e-35dda0c7f84e",
                             Article = "DM289619",
                             CategoryId = "category4",
                             Description = "Засіб Denkmit Супердія призначений для ефективного видалення жиру і нагару з кухонних поверхонь, плит, духовок, мікрохвильових печей та інших обладнаннях.",
                             DiscountPercent = 12f,
                             Name = "Засіб для видалення жиру і нагару Denkmit Супердія 750 мл",
-                            PhotoPath = "/product18",
+                            PhotoBase64 = "",
+                            PhotoPath = "product18",
                             Price = 720f,
                             ProducerId = "Denkmit05",
                             StatusId = "avaliable",
@@ -524,13 +547,14 @@ namespace DiplomeProject.Migrations
                         },
                         new
                         {
-                            Id = "41cbc7bf-45d2-401c-b7a2-615130a3dbe6",
+                            Id = "737ce354-b5b7-49f8-92f6-d02b374c388b",
                             Article = "DM294647",
                             CategoryId = "category3",
                             Description = "Засіб для очищення ламінату та пробкових підлог від Denkmit має формулу швидкого висихання, а також спеціальний захист стиків від вологи та здуття. Підходить для ламінату, пробки, вінілу та лінолеуму.\r\n\r\n*Упаковка містить не менше 70% переробленого вмісту.",
                             DiscountPercent = 0f,
                             Name = "Засіб для миття ламінату Denkmit 1л",
-                            PhotoPath = "/product19",
+                            PhotoBase64 = "",
+                            PhotoPath = "product19",
                             Price = 66f,
                             ProducerId = "Denkmit05",
                             StatusId = "avaliable",
@@ -605,8 +629,8 @@ namespace DiplomeProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b7b0b1b7-34ef-4534-b92c-d1599dffc86f",
-                            ConcurrencyStamp = "4c0afc8b-b2fd-4907-bc18-ba6c682fbd8a",
+                            Id = "9d8df1a5-dfea-4d59-9ec6-74cfcc3e96e6",
+                            ConcurrencyStamp = "796f8060-966b-4ac7-9072-06368aee59e0",
                             Name = "Admin"
                         });
                 });

@@ -1,6 +1,8 @@
 ﻿using DiplomeProject.DB;
 using DiplomeProject.DB.Models;
 using DiplomeProject.Repositories.Interfaces;
+using StudentAccountingProject.Helpers;
+using System.Data.Entity;
 
 namespace DiplomeProject.Repositories.Implementations
 {
@@ -22,7 +24,14 @@ namespace DiplomeProject.Repositories.Implementations
 
         public IEnumerable<Product> GetAll()
         {
-           return _context.Products;
+            var products = _context.Products;
+
+            products.ToList().ForEach(x =>
+            {
+                x.PhotoBase64 = ImageService.ImageToBase64(x.PhotoPath);
+            });
+
+            return products;
         }
 
         public Product GetById(string EntityId)
@@ -32,13 +41,18 @@ namespace DiplomeProject.Repositories.Implementations
 
         public void Insert(Product entity)
         {
-            if(entity == null)
+            if (entity == null)
             {
                 return;
             }
 
             _context.Products.Add(entity);
             Save();
+        }
+
+        public int GetCount()
+        {
+            return _context.Products.Count();
         }
 
         public void Save()

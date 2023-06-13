@@ -30,6 +30,11 @@ namespace DiplomeProject.Repositories.Implementations
             return _context.Categories.FirstOrDefault(x => x.Id == EntityId);
         }
 
+        public int GetCount()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Insert(Category entity)
         {
             if (entity == null)

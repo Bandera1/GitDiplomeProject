@@ -6,6 +6,7 @@
         T GetById(string EntityId);
         void Insert(T entity);
         void Delete(string EntityId);
+        int GetCount();
         void Save();
     }
 }

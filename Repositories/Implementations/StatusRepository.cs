@@ -30,6 +30,11 @@ namespace DiplomeProject.Repositories.Implementations
             return _context.ProductStatuses.FirstOrDefault(x => x.Id == EntityId);
         }
 
+        public int GetCount()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Insert(ProductStatus entity)
         {
             if (entity == null)
