@@ -21,8 +21,7 @@ namespace StudentAccountingProject.Helpers
                     image.Save(m, image.RawFormat);
                     byte[] imageBytes = m.ToArray();
 
-                    // Convert byte[] to Base64 String
-                    string base64String = Convert.ToBase64String(imageBytes);
+                    string base64String = "data:image/png;base64," + Convert.ToBase64String(imageBytes);
                     return base64String;
                 }
             }

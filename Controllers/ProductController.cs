@@ -13,8 +13,8 @@ namespace DiplomeProject.Controllers
             _productRepository = productRepository; 
         }
 
-        [HttpGet("GetAllProducts/{from}/{count}/{producerId}/{name}")]
-        public async Task<IActionResult> GetAllProducts(int from, int count, string? producerId, string? name)
+        [HttpGet("GetAllProducts/{from}/{count}/{categoryId}/{name}/{producerId}")]
+        public async Task<IActionResult> GetAllProducts(int from, int count, string? categoryId, string? name, string? producerId)
         {
             if (!ModelState.IsValid)
             {
@@ -29,22 +29,27 @@ namespace DiplomeProject.Controllers
                 return Ok(allProducts.Take(count));
             }
 
-            var result = _productRepository.GetAll(); 
+            List<Product> result = new List<Product>(); 
+
+            if (categoryId != null && categoryId != "0")
+            {
+                result.AddRange(allProducts.Where(x => x.CategoryId == categoryId));
+            }
 
             if (producerId != null && producerId != "0")
             {
-                result = result.Where(x => x.ProducerId == producerId);
+                result.AddRange(allProducts.Where(x => x.ProducerId == producerId));
             }
 
             if (name != null && name != "0")
             {
-                result = result.Where(x => x.Name.ToLower().Contains(name.ToLower()));
+                result.AddRange(allProducts.Where(x => x.Name.ToLower().Contains(name.ToLower())));
             }
 
-            //if (article != null && article != "0")
-            //{
-            //    result = result.Where(x => x.Article == article);
-            //}
+            if(result.Count < 1)
+            {
+                result = allProducts.ToList();
+            }       
 
             //if (categoriesId != null)
             //{

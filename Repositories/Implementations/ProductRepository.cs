@@ -36,7 +36,11 @@ namespace DiplomeProject.Repositories.Implementations
 
         public Product GetById(string EntityId)
         {
-            return _context.Products.FirstOrDefault(x => x.Id == EntityId);
+            var result = _context.Products.FirstOrDefault(x => x.Id == EntityId);
+
+            result.PhotoBase64 = ImageService.ImageToBase64(result.PhotoPath);
+
+            return result;
         }
 
         public void Insert(Product entity)
