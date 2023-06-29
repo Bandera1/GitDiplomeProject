@@ -26,8 +26,8 @@ namespace DiplomeProject.DB
             base.OnModelCreating(builder);
 
             // Roles - 1
-            builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Admin" });
-          
+            //builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = ProjectRoles.ADMIN });
+
             #region Category
             // Category - 4
             builder.Entity<Category>().HasData(

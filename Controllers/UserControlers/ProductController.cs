@@ -2,7 +2,7 @@
 using DiplomeProject.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DiplomeProject.Controllers
+namespace DiplomeProject.Controllers.UserControler
 {
     public class ProductController : ApiController
     {
@@ -10,7 +10,7 @@ namespace DiplomeProject.Controllers
 
         public ProductController(IRepository<Product> productRepository)
         {
-            _productRepository = productRepository; 
+            _productRepository = productRepository;
         }
 
         [HttpGet("GetAllProducts/{from}/{count}/{categoryId}/{name}/{producerId}")]
@@ -24,40 +24,32 @@ namespace DiplomeProject.Controllers
             var allProducts = _productRepository.GetAll();
             int productCount = _productRepository.GetCount();
 
-            if(from + count > productCount)
+            if (from + count > productCount)
             {
                 return Ok(allProducts.Take(count));
             }
 
-            List<Product> result = new List<Product>(); 
+            List<Product> result = new List<Product>();
 
-            if (categoryId != null && categoryId != "0")
+            if (categoryId != null)
             {
                 result.AddRange(allProducts.Where(x => x.CategoryId == categoryId));
             }
 
-            if (producerId != null && producerId != "0")
+            if (producerId != null)
             {
                 result.AddRange(allProducts.Where(x => x.ProducerId == producerId));
             }
 
-            if (name != null && name != "0")
+            if (name != null)
             {
                 result.AddRange(allProducts.Where(x => x.Name.ToLower().Contains(name.ToLower())));
             }
 
-            if(result.Count < 1)
+            if (result.Count < 1)
             {
                 result = allProducts.ToList();
-            }       
-
-            //if (categoriesId != null)
-            //{
-            //    foreach (var category in categoriesId)
-            //    {
-            //        result.ToList().AddRange(allProducts.Where(x => x.CategoryId == category));
-            //    }
-            //}
+            }
 
 
             return Ok(result.Skip(from).Take(count));

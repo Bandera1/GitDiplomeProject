@@ -2,7 +2,7 @@
 using DiplomeProject.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DiplomeProject.Controllers
+namespace DiplomeProject.Controllers.UserControler
 {
     public class ProducerController : ApiController
     {
